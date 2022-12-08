@@ -1,0 +1,11 @@
+('Fantasia'),
+('Ficção Científica'),
+('Crónicas'),
+('Contos'),
+('Biografias'),
+('Poesia'),
+('Romance'),
+('Policial e Thiller'),
+('Humor'),
+('Literatura'),
+('Monografias')

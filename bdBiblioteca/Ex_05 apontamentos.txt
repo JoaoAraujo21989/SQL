@@ -1,0 +1,320 @@
+//Criar tabela Editora
+CREATE TABLE Editora(
+id_editora int AUTO_INCREMENT NOT NULL,
+nome_editora varchar(50) NOT NULL,
+CONSTRAINT PK_Editora PRIMARY KEY (id_editora)
+)
+
+//Criar tabela Autor
+CREATE TABLE Autor(
+id_autor int AUTO_INCREMENT NOT NULL,
+nome_autor varchar(50) NOT NULL,
+pais varchar(50) NOT NULL,
+CONSTRAINT PK_Autor PRIMARY KEY (id_autor)
+)
+
+//Criar tabela Genero
+CREATE TABLE Genero(
+id_genero int AUTO_INCREMENT NOT NULL,
+genero varchar(50) NOT NULL,
+CONSTRAINT PK_Genero PRIMARY KEY (id_genero)
+)
+
+//Criar tabela Cliente
+CREATE TABLE Cliente(
+id_cliente int AUTO_INCREMENT NOT NULL,
+nome varchar(60) NOT NULL,
+email varchar(60) NULL,
+contato int(9) NOT NULL,
+CONSTRAINT PK_Cliente PRIMARY KEY (id_cliente)
+)
+
+
+
+//Criar tabela Livro
+CREATE TABLE Livro(
+id_livro int AUTO_INCREMENT NOT NULL,
+titulo varchar(50) NOT NULL,
+id_editora int NOT NULL,
+id_autor int NOT NULL,
+id_genero int NOT NULL,
+CONSTRAINT PK_Livro PRIMARY KEY (id_livro),
+CONSTRAINT FK_Editora FOREIGN KEY (id_editora) REFERENCES Editora (id_editora),
+CONSTRAINT FK_autor FOREIGN KEY (id_autor) REFERENCES Autor (id_autor),
+CONSTRAINT FK_Genero FOREIGN KEY (id_genero) REFERENCES Genero (id_genero),
+)
+
+//Criar tabela Emprestimo
+CREATE TABLE Emprestimo(
+id_emprestimo int AUTO_INCREMENT NOT NULL,
+data_devolucao date NULL,
+data_emprestimo date NOT NULL,
+id_cliente int NOT NULL,
+id_livro int NOT NULL,
+CONSTRAINT PK_Emprestimo PRIMARY KEY (id_emprestimo),
+CONSTRAINT FK_Cliente FOREIGN KEY (id_cliente) REFERENCES Cliente (id_cliente),
+CONSTRAINT FK_Livro FOREIGN KEY (id_livro) REFERENCES Livro (id_livro)
+)
+
+//Inserir dados
+
+//Editoras
+INSERT INTO Editora (nome_editora) VALUES 
+('Porto Editora'),
+('LeYa'),
+('Planeta'),
+('Editorial Presença'),
+('Gradiva'),
+('Plátano Editora'),
+('Edições Piaget'),
+('Grupo Lidel'),
+('Livros do Brasil'),
+('Sextante Editora'),
+('Pergaminho')
+
+//Autor
+INSERT INTO Autor (nome_autor, pais) VALUES
+('Frank Herbert','EUA'),
+('Olga Ravn','Dinamarca'),
+('Richard Morgan','EUA'),
+('Daniel Silva','EUA'),
+('José Rodrigues dos Santos','Portugal'),
+('Stephen King','EUA'),
+('Joana Marques','Portugal'),
+('Ricardo Araújo Pereira','Portugal'),
+('Juliet Marillier','Alemanha'),
+('Chloe Gong','França'),
+('TJ Klune','França'),
+('David Costa','Brasil'),
+('V.E. Schwab','Alemanha')
+
+//Genero
+INSERT INTO Genero (genero) VALUES
+('Fantasia'),
+('Ficção Científica'),
+('Crónicas'),
+('Contos'),
+('Biografias'),
+('Poesia'),
+('Romance'),
+('Policial e Thiller'),
+('Humor'),
+('Literatura'),
+('Monografias')
+
+//Cliente
+INSERT INTO Cliente (nome, email, contato) VALUES
+('Miguel Antunes','mantunes187@gmail.com','912456789'),
+('Armindo Guterres','armindo.1963@live.com.pt','921568793'),
+('Rita Rodrigues','ritinha111@gmail.com','963184687'),
+('Larissa Ventura','lariss_ventura@hotmail.com','963215897'),
+('Roberto Fragoso','robfrag@yahoo.com','928649873'),
+('Adélia Custódio','adeliaamcustodio@hotmail.com','913254893'),
+('Sofia Velasquez','velasquez.sof333@live.com.pt','916588731'),
+('Delfim Pestana','pestanas1978@gmail.com','936544486'),
+('Vânia Quaresma','vania.quaresma.77@yahoo.com','926888369'),
+('Maria Pardo','pardo_maria@hotmail.com','913654879'),
+('Wilson Guimarães','wwwilsonnn1994@gmail.com','963211548'),
+('Nilton Godinho','nilton_god_@hotmail.com','923345869'),
+('Clara Dantas','clarinha2000_1@live.com.pt','915487358'),
+('Emanuel Rocha','emanuelonrocks@gmail.com','962144487'),
+('Mark Raposo','markfoxx@hotmail.com','935587694'),
+('Tiago Pacheco','tigas_pacheco@yahoo.com','916687943'),
+('Raquel Caldas','caldas.raquel2001@live.com.pt','923648776'),
+('Miriam Figueiras','miri_figueiras4321@hotmail.com','913478282'),
+('Carlos Teixeira','carlosjrteixeira@gmail.com','963188413')
+
+//Livros
+INSERT INTO Livro (titulo,id_editora,id_autor,id_genero) VALUES
+('Leão Da Insanidade',9,6,2),
+('Vigarista Com Pecados',4,13,9),
+('Companheiros Do Rio',6,10,11),
+('Cobras De Vento',4,7,9),
+('Árvores E Guardiões',4,11,2),
+('Agentes E Cães',9,3,6),
+('Influenciar Com Vigor',3,2,4),
+('Conquista Sem Pecado',9,3,10),
+('Chorando Na Tecnologia',4,5,1),
+('Prepare-Se Para As Minas',7,11,4),
+('Sacerdote Dos Perdidos',4,10,7),
+('Chuvas De Desejo',6,10,4),
+('Estrangeiros De Tristeza',3,10,9),
+('Estranhos De Amanhã',6,5,1),
+('Cobras E Defensores',10,9,4),
+('Ratos E Descendentes',6,11,7),
+('União Das Paliçadas',5,1,6),
+('Visão Com Asas',11,4,3),
+('Ainda Respirando Nas Profundezas',7,4,10),
+('Sons Na Minha Esposa',7,5,11),
+('Herói Sem Glória',4,12,4),
+('Falcão Do Vento',1,11,10),
+('Meninas Da Nação',8,11,5),
+('Guardiões Do Mundo',9,4,8),
+('Assassinos E Inimigos',1,7,8),
+('Humanos E Fantasmas',10,12,3),
+('Amaldiçoar Com Força',3,4,10),
+('Clímax Sem Fé',3,13,7),
+('Protegido Pelo Caçador',3,1,6),
+('Prepare-Se Para O Universo',2,3,3)
+
+
+//Emprestimo
+INSERT INTO Emprestimo (data_devolucao,data_emprestimo,id_cliente,id_livro) VALUES
+('2022-01-06','2020-12-09',19,18),
+('2021-08-22','2019-06-07',7,23),
+('2022-04-19','2021-07-14',11,10),
+('2021-11-02','2019-04-20',4,13),
+('2022-05-26','2019-10-31',13,22),
+(NULL,'2021-09-24',13,25),
+('2022-04-17','2022-02-06',2,25),
+('2022-06-06','2022-05-25',17,10),
+('2022-06-24','2021-01-30',1,20),
+('2021-06-06','2020-03-28',10,2),
+(NULL,'2021-11-28',5,6),
+(NULL,'2021-04-21',16,29),
+(NULL,'2021-02-07',14,2),
+(NULL,'2020-10-24',10,30),
+('2022-07-26','2022-01-08',17,3),
+(NULL,'2020-04-16',13,23),
+('2022-07-03','2019-08-18',16,25),
+('2021-09-06','2019-12-25',19,13),
+(NULL,'2021-02-27',9,12),
+('2021-06-22','2019-12-18',7,14),
+(NULL,'2021-01-28',4,3),
+('2021-08-24','2020-06-14',13,21),
+('2022-04-26','2021-12-17',8,7),
+('2022-05-14','2019-11-07',6,3),
+(NULL,'2019-11-03',1,25),
+('2021-03-27','2020-02-05',14,15),
+('2020-06-05','2020-06-04',10,16),
+('2020-12-28','2020-11-27',13,18),
+('2022-01-21','2019-11-24',7,12),
+('2021-12-25','2019-12-01',3,23)
+
+
+EXERCICIO
+
+
+1. Crie uma lista com o nome dos clientes que têm um email que contenha o texto ‘gmail’ e tenham 
+um contacto que comece em 91 ou 96;
+
+CREATE VIEW 1_cliente_gmail_91_96 AS
+SELECT *  
+FROM cliente
+WHERE email LIKE '%gmail%' AND
+		(contato LIKE '91%' OR
+    	contato LIKE '96%')
+
+2. Crie uma lista com o nome de todos os livros que tenham as preposições ‘de’, ‘do’ ou ‘da’;
+
+CREATE VIEW 2_preposicoes_de_do_da AS
+SELECT *
+FROM livro
+WHERE titulo LIKE '% de %'OR
+	titulo LIKE '% do %'OR
+    titulo LIKE '% da %'
+
+3. Crie uma lista com os empréstimos que ainda não foram devolvidos, acrescente uma coluna 
+chamada ‘Dias’ que faça o calculo do numero de dias decorridos desde a data do empréstimo.
+
+CREATE VIEW 3_livros_nao_devolvidos_dias AS
+SELECT id_emprestimo, id_livro, id_cliente, (DATEDIFF(CURRENT_DATE,data_emprestimo)) as DIAS
+FROM emprestimo 
+WHERE data_devolucao is NULL
+
+
+4. Crie uma lista com apenas uma coluna chamada ‘Livro_Autor’, com “<nome do livro>, <nome do autor>”;
+
+CREATE VIEW 4_Livro_autor AS
+SELECT CONCAT(titulo, ", ", nome_autor) AS Livro_Autor
+FROM livro l
+JOIN autor a ON l.id_autor=a.id_autor
+
+5. Crie uma lista com todos os anos e total de empréstimos por cada ano;
+
+CREATE VIEW 5_anos_emprestimos_total AS!!!!!!!
+SELECT DISTINCT YEAR(data_emprestimo) , COUNT(e.data_emprestimo) as TOTAL
+FROM emprestimo e
+GROUP BY YEAR(data_emprestimo)
+
+6. Crie uma lista com o nome das editoras e a respetiva quantidade de livros de cada uma, apresentado
+ só as editoras com mais de 3 livros.
+
+CREATE VIEW 6_editoras_quant_livros_mair_3 AS
+SELECT nome_editora, COUNT(l.id_livro) as QUANT
+FROM editora e
+JOIN livro l ON e.id_editora=l.id_editora
+GROUP BY nome_editora
+HAVING COUNT(l.id_livro)>3
+
+7. Crie uma lista com o título dos livros, nome dos autores e país, cujo os autores são dos 
+EUA e Portugal, ordenado por ordem ascendente por nome de autor;
+
+CREATE VIEW 7_titulo_autor_pais_eua_portugal AS
+SELECT l.titulo,a.nome_autor,a.pais
+FROM livro l
+JOIN autor a ON l.id_autor=a.id_autor
+WHERE a.pais='EUA' OR a.pais='Portugal' !!!!! where a.pais in ('EUA', 'Portugal')
+ORDER BY a.nome_autor
+
+8. Crie uma lista com o género e a quantidade de livros por género existentes na biblioteca;
+
+CREATE VIEW 8_genero_quant AS
+SELECT genero,COUNT(l.id_livro)
+FROM genero g
+JOIN livro l ON g.id_genero=l.id_genero
+GROUP BY genero
+
+9. Crie uma lista com o nome das editoras e nome dos géneros que cada editora tem disponível nesta biblioteca;
+
+CREATE VIEW 9_editora_genero AS
+SELECT e.nome_editora,g.genero
+FROM livro l
+JOIN editora e on l.id_editora=e.id_editora
+JOIN genero g ON l.id_genero=g.id_genero
+
+10. Crie uma lista com o top 3 nomes dos autores mais requisitados e respetivo total de 
+empréstimos, que não pertençam aos EUA;
+
+CREATE VIEW 10_top_3_autores_sem_EUA AS
+SELECT a.nome_autor, COUNT(e.id_livro)--, a.pais
+FROM livro l
+JOIN emprestimo e ON l.id_livro=e.id_livro
+JOIN autor a ON l.id_autor=a.id_autor
+WHERE NOT a.pais = 'EUA'
+GROUP BY a.nome_autor
+HAVING COUNT(e.id_livro)
+ORDER BY COUNT(e.id_livro) DESC
+LIMIT 3
+
+11. Crie uma lista com o título dos livros, nomes e email dos clientes, e data de empréstimos, 
+cujos os livros ainda não foram devolvidos antes de 2021, ordenados do mais antigo para o mais recente;
+
+CREATE VIEW 11_nome_livros_nome_e_email_clientes_data_emprestimo AS
+SELECT l.titulo,c.nome,c.email,e.data_emprestimo
+FROM emprestimo e
+JOIN cliente c ON e.id_cliente=c.id_cliente
+JOIN livro l ON e.id_livro=l.id_livro
+WHERE data_devolucao is NULL AND YEAR(data_emprestimo)<2021
+ORDER BY year(data_emprestimo)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

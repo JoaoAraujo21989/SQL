@@ -1,0 +1,11 @@
+('Porto Editora'),
+('LeYa'),
+('Planeta'),
+('Editorial Presença'),
+('Gradiva'),
+('Plátano Editora'),
+('Edições Piaget'),
+('Grupo Lidel'),
+('Livros do Brasil'),
+('Sextante Editora'),
+('Pergaminho')

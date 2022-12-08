@@ -1,0 +1,13 @@
+('Frank Herbert','EUA'),
+('Olga Ravn','Dinamarca'),
+('Richard Morgan','EUA'),
+('Daniel Silva','EUA'),
+('José Rodrigues dos Santos','Portugal'),
+('Stephen King','EUA'),
+('Joana Marques','Portugal'),
+('Ricardo Araújo Pereira','Portugal'),
+('Juliet Marillier','Alemanha'),
+('Chloe Gong','França'),
+('TJ Klune','França'),
+('David Costa','Brasil'),
+('V.E. Schwab','Alemanha')
